@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Magic Square</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="bar">
+    <h1>Magic Square</h1>
+
+    <div class="controls">
+      <label>
+        Grid
+        <select id="gridSize">
+          <option value="3" selected>3×3</option>
+          <option value="4">4×4</option>
+          <option value="5">5×5</option>
+        </select>
+      </label>
+
+      <label>
+        Difficulty
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+
+      <button id="newGame">New Game</button>
+      <button id="reset">Reset</button>
+      <button id="help">What is this?</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>Available</h2>
+      <div id="palette" class="palette"></div>
+      <p class="hint">Click a number, then click an empty cell to place it. Click a filled (non-fixed) cell to remove.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Board</h2>
+      <div id="board" class="board" aria-label="Magic square board"></div>
+
+      <div class="status">
+        <div id="targetInfo" class="target"></div>
+        <div id="sums" class="sums"></div>
+        <div id="message" class="message"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Help modal -->
+  <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h3 id="modalTitle">Magic Squares</h3>
+      <p>
+        A magic square is a square grid of numbers where the sums of the numbers in each row and each column
+        are all the same. This special total is called the <strong>magic sum</strong> (or <strong>magic constant</strong>).
+        Magic squares usually use consecutive whole numbers starting from 1.
+      </p>
+      <p>
+        They have been studied for hundreds of years and appear in math, puzzles, and even art.
+        Magic squares are interesting because they combine simple numbers with surprising patterns and balance.
+      </p>
+
+      <label class="checkbox">
+        <input type="checkbox" id="dontShowAgain" />
+        Don’t show this automatically again
+      </label>
+
+      <div class="modal-actions">
+        <button id="closeModal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
